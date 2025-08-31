@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Porsche Car</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 50px;
+      background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 60%, #228B22 60%, #228B22 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .car-container {
+      position: relative;
+      width: 600px;
+      height: 200px;
+      animation: drive-across 6s linear infinite;
+    }
+
+    /* Car Body */
+    .car-body {
+      position: absolute;
+      bottom: 40px;
+      left: 50px;
+      width: 500px;
+      height: 80px;
+      background: linear-gradient(to bottom, #FF4500, #FF6347);
+      border-radius: 40px 40px 20px 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Car Hood */
+    .car-hood {
+      position: absolute;
+      bottom: 70px;
+      left: 80px;
+      width: 200px;
+      height: 60px;
+      background: linear-gradient(to bottom, #FF4500, #FF6347);
+      border-radius: 30px 30px 0 0;
+      transform: skewX(-10deg);
+    }
+
+    /* Car Roof */
+    .car-roof {
+      position: absolute;
+      bottom: 90px;
+      left: 250px;
+      width: 180px;
+      height: 50px;
+      background: linear-gradient(to bottom, #FF4500, #FF6347);
+      border-radius: 25px 25px 0 0;
+      transform: skewX(5deg);
+    }
+
+    /* Windshield */
+    .windshield {
+      position: absolute;
+      bottom: 95px;
+      left: 200px;
+      width: 80px;
+      height: 40px;
+      background: linear-gradient(135deg, #87CEEB, #B0E0E6);
+      border-radius: 10px 10px 0 0;
+      transform: skewX(-20deg);
+      opacity: 0.8;
+    }
+
+    /* Side Windows */
+    .side-window {
+      position: absolute;
+      bottom: 100px;
+      left: 280px;
+      width: 120px;
+      height: 35px;
+      background: linear-gradient(135deg, #87CEEB, #B0E0E6);
+      border-radius: 5px;
+      opacity: 0.8;
+      transform: skewX(10deg);
+    }
+
+    /* Front Wheel */
+    .front-wheel {
+      position: absolute;
+      bottom: 10px;
+      left: 120px;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, #2F2F2F 30%, #1C1C1C 70%);
+      border-radius: 50%;
+      border: 8px solid #000;
+      box-shadow: inset 0 0 20px rgba(255,255,255,0.2);
+      animation: spin 1s linear infinite;
+    }
+
+    /* Rear Wheel */
+    .rear-wheel {
+      position: absolute;
+      bottom: 10px;
+      right: 80px;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, #2F2F2F 30%, #1C1C1C 70%);
+      border-radius: 50%;
+      border: 8px solid #000;
+      box-shadow: inset 0 0 20px rgba(255,255,255,0.2);
+      animation: spin 1s linear infinite;
+    }
+
+    /* Wheel Rims */
+    .front-wheel::before,
+    .rear-wheel::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30px;
+      height: 30px;
+      background: radial-gradient(circle, #C0C0C0, #808080);
+      border-radius: 50%;
+      border: 2px solid #A0A0A0;
+    }
+
+    /* Headlights */
+    .headlight {
+      position: absolute;
+      bottom: 80px;
+      left: 70px;
+      width: 25px;
+      height: 20px;
+      background: radial-gradient(circle, #FFFF99, #FFFFE0);
+      border-radius: 50%;
+      border: 2px solid #FFA500;
+      box-shadow: 0 0 15px rgba(255,255,153,0.8);
+    }
+
+    /* Taillights */
+    .taillight {
+      position: absolute;
+      bottom: 80px;
+      right: 50px;
+      width: 20px;
+      height: 15px;
+      background: radial-gradient(circle, #FF0000, #8B0000);
+      border-radius: 50%;
+      border: 1px solid #800000;
+    }
+
+    /* Door Handle */
+    .door-handle {
+      position: absolute;
+      bottom: 90px;
+      left: 350px;
+      width: 15px;
+      height: 5px;
+      background: #C0C0C0;
+      border-radius: 3px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    }
+
+    /* Racing Stripe */
+    .racing-stripe {
+      position: absolute;
+      bottom: 95px;
+      left: 80px;
+      width: 400px;
+      height: 8px;
+      background: linear-gradient(to right, #FFFFFF, #F0F0F0);
+      border-radius: 4px;
+      opacity: 0.9;
+    }
+
+    /* Spoiler */
+    .spoiler {
+      position: absolute;
+      bottom: 115px;
+      right: 60px;
+      width: 80px;
+      height: 12px;
+      background: linear-gradient(to bottom, #FF4500, #FF6347);
+      border-radius: 6px;
+      transform: rotate(-5deg);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    }
+
+    /* Ground Shadow */
+    .shadow {
+      position: absolute;
+      bottom: 0px;
+      left: 60px;
+      width: 480px;
+      height: 20px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 50%;
+      filter: blur(8px);
+    }
+
+    /* Road */
+    .road {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+      background: #333;
+    }
+
+    .line {
+      position: absolute;
+      bottom: 25px;
+      width: 80%;
+      height: 6px;
+      left: 10%;
+      background: repeating-linear-gradient(
+        to right, 
+        #fff 0, #fff 40px, 
+        transparent 40px, transparent 80px
+      );
+    }
+
+    /* Animations */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes drive-across {
+      0% { transform: translateX(-700px); }
+      100% { transform: translateX(1200px); }
+    }
+
+    .title {
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      font-weight: bold;
+      color: #FF4500;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="road">
+    <div class="line"></div>
+  </div>
+
+  <div class="car-container">
+    <div class="title">Porsche 911</div>
+    <div class="shadow"></div>
+    <div class="car-body"></div>
+    <div class="car-hood"></div>
+    <div class="car-roof"></div>
+    <div class="windshield"></div>
+    <div class="side-window"></div>
+    <div class="front-wheel"></div>
+    <div class="rear-wheel"></div>
+    <div class="headlight"></div>
+    <div class="taillight"></div>
+    <div class="door-handle"></div>
+    <div class="racing-stripe"></div>
+    <div class="spoiler"></div>
+  </div>
+</body>
+</html>
