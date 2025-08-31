@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maa Durga - Divine Mother</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(to bottom, #1a1a2e, #16213e, #0f3460);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Hind Siliguri', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .title {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: #ffd700;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: #e94560;
+            font-style: italic;
+        }
+        
+        .maa-durga {
+            position: relative;
+            width: 500px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Base and platform */
+        .platform {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 30px;
+            background: linear-gradient(to bottom, #8b4513, #a0522d);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .lotus-base {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 40px;
+            background: linear-gradient(to bottom, #ffb6c1, #ff69b4);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+        }
+        
+        /* Body and face */
+        .body {
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 200px;
+            background: linear-gradient(to bottom, #ffdbac, #f3c987);
+            border-radius: 60px 60px 0 0;
+        }
+        
+        .face {
+            position: absolute;
+            bottom: 270px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 100px;
+            background: linear-gradient(to bottom, #ffdbac, #f3c987);
+            border-radius: 45px 45px 40px 40px;
+        }
+        
+        /* Hair and crown */
+        .hair {
+            position: absolute;
+            bottom: 320px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110px;
+            height: 50px;
+            background: #2c003e;
+            border-radius: 50% 50% 0 0;
+        }
+        
+        .crown {
+            position: absolute;
+            bottom: 370px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 30px;
+            background: linear-gradient(to bottom, #ffd700, #ff8c00);
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        }
+        
+        .crown-top {
+            position: absolute;
+            bottom: 400px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 20px;
+            background: linear-gradient(to bottom, #ff8c00, #ff4500);
+            border-radius: 10px;
+        }
+        
+        /* Arms */
+        .arm {
+            position: absolute;
+            background: linear-gradient(to bottom, #ffdbac, #f3c987);
+            border-radius: 20px;
+        }
+        
+        .main-arms {
+            width: 25px;
+            height: 120px;
+        }
+        
+        .arm-1 {
+            bottom: 220px;
+            left: 205px;
+            transform: rotate(20deg);
+        }
+        
+        .arm-2 {
+            bottom: 220px;
+            left: 270px;
+            transform: rotate(-20deg);
+        }
+        
+        /* Multiple arms */
+        .multiple-arms {
+            position: absolute;
+            bottom: 270px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 200px;
+        }
+        
+        .divine-arm {
+            position: absolute;
+            width: 20px;
+            height: 150px;
+            background: linear-gradient(to bottom, #ffdbac, #f3c987, rgba(255, 219, 172, 0.7));
+            border-radius: 10px;
+            opacity: 0.9;
+        }
+        
+        .arm-3 { transform: rotate(-70deg); bottom: 50px; left: 50px; }
+        .arm-4 { transform: rotate(-40deg); bottom: 80px; left: 100px; }
+        .arm-5 { transform: rotate(-10deg); bottom: 100px; left: 170px; }
+        .arm-6 { transform: rotate(10deg); bottom: 100px; right: 170px; }
+        .arm-7 { transform: rotate(40deg); bottom: 80px; right: 100px; }
+        .arm-8 { transform: rotate(70deg); bottom: 50px; right: 50px; }
+        
+        /* Weapons */
+        .weapon {
+            position: absolute;
+            background: linear-gradient(to bottom, #c0c0c0, #a9a9a9);
+            border-radius: 3px;
+        }
+        
+        .trishul {
+            width: 8px;
+            height: 80px;
+            bottom: 380px;
+            left: 245px;
+            transform: rotate(-10deg);
+            box-shadow: 0 0 10px rgba(192, 192, 192, 0.8);
+        }
+        
+        .trishul-top {
+            position: absolute;
+            width: 30px;
+            height: 10px;
+            background: #c0c0c0;
+            bottom: 455px;
+            left: 238px;
+            border-radius: 2px;
+        }
+        
+        .sword {
+            width: 10px;
+            height: 70px;
+            bottom: 370px;
+            left: 220px;
+            transform: rotate(40deg);
+            box-shadow: 0 0 10px rgba(192, 192, 192, 0.8);
+        }
+        
+        .chakra {
+  animation: spin 6s linear infinite;
+}
+        @keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+
+        
+        /* Eyes and features */
+        .eye {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #000;
+            border-radius: 50%;
+            bottom: 330px;
+        }
+        
+        .eye-left { left: 205px; }
+        .eye-right { left: 283px; }
+        
+        .bindi {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #ff0000;
+            border-radius: 50%;
+            bottom: 335px;
+            left: 250px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+        }
+        
+        /* Divine glow */
+        .glow {
+            position: absolute;
+            bottom: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, rgba(255,140,0,0.2) 30%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        /* Decorative elements */
+        .decoration {
+            position: absolute;
+            background: linear-gradient(45deg, #ff0000, #ff8c00, #ffd700);
+            border-radius: 10px;
+        }
+        
+        .decoration-1 {
+            width: 150px;
+            height: 20px;
+            bottom: 240px;
+            left: 175px;
+        }
+        
+        .decoration-2 {
+            width: 100px;
+            height: 15px;
+            bottom: 220px;
+            left: 200px;
+        }
+        
+        /* Stars in background */
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+        
+        /* Footer text */
+        .footer {
+            margin-top: 40px;
+            font-size: 1.2rem;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        /* Lion mount */
+        .lion {
+            position: absolute;
+            bottom: 30px;
+            width: 120px;
+            height: 70px;
+            background: linear-gradient(to bottom, #ff8c00, #d2691e);
+            border-radius: 40% 40% 0 0;
+        }
+        
+        .lion-left {
+            left: 90px;
+            transform: rotate(10deg);
+        }
+        
+        .lion-right {
+            right: 90px;
+            transform: rotate(-10deg);
+        }
+        
+        .lion-head {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #d2691e;
+            border-radius: 50%;
+        }
+        
+        .lion-left .lion-head {
+            bottom: 60px;
+            left: 30px;
+        }
+        
+        .lion-right .lion-head {
+            bottom: 60px;
+            right: 30px;
+        }
+        
+        .lion-mane {
+            position: absolute;
+            width: 50px;
+            height: 30px;
+            background: #ff8c00;
+            border-radius: 50%;
+        }
+        
+        .lion-left .lion-mane {
+            bottom: 55px;
+            left: 20px;
+        }
+        
+        .lion-right .lion-mane {
+            bottom: 55px;
+            right: 20px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .title { font-size: 2.5rem; }
+            .subtitle { font-size: 1.2rem; }
+            .maa-durga { transform: scale(0.8); }
+        }
+        
+        @media (max-width: 400px) {
+            .title { font-size: 2rem; }
+            .subtitle { font-size: 1rem; }
+            .maa-durga { transform: scale(0.7); }
+        }
+        
+        /* Prayer text */
+        .prayer {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #fff;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">माँ दुर्गा</h1>
+        <p class="subtitle">The Divine Mother Goddess</p>
+        
+        <div class="maa-durga">
+            <!-- Platform and base -->
+            <div class="platform"></div>
+            <div class="lotus-base"></div>
+            
+            <!-- Lions -->
+            <div class="lion lion-left">
+                <div class="lion-head"></div>
+                <div class="lion-mane"></div>
+            </div>
+            <div class="lion lion-right">
+                <div class="lion-head"></div>
+                <div class="lion-mane"></div>
+            </div>
+            
+            <!-- Body and face -->
+            <div class="body"></div>
+            <div class="face"></div>
+            
+            <!-- Hair and crown -->
+            <div class="hair"></div>
+            <div class="crown"></div>
+            <div class="crown-top"></div>
+            
+            <!-- Main arms -->
+            <div class="arm main-arms arm-1"></div>
+            <div class="arm main-arms arm-2"></div>
+            
+            <!-- Multiple arms -->
+            <div class="multiple-arms">
+                <div class="divine-arm arm-3"></div>
+                <div class="divine-arm arm-4"></div>
+                <div class="divine-arm arm-5"></div>
+                <div class="divine-arm arm-6"></div>
+                <div class="divine-arm arm-7"></div>
+                <div class="divine-arm arm-8"></div>
+            </div>
+            
+            <!-- Weapons -->
+            <div class="weapon trishul"></div>
+            <div class="trishul-top"></div>
+            <div class="weapon sword"></div>
+            <div class="chakra"></div>
+            
+            <!-- Facial features -->
+            <div class="eye eye-left"></div>
+            <div class="eye eye-right"></div>
+            <div class="bindi"></div>
+            
+            <!-- Decorations -->
+            <div class="decoration decoration-1"></div>
+            <div class="decoration decoration-2"></div>
+            
+            <!-- Divine glow -->
+            <div class="glow"></div>
+        </div>
+        
+        <div class="prayer">
+            "Ya Devi Sarva Bhuteshu, Shakti Rupena Samsthita<br>
+            Namastasyai Namastasyai Namastasyai Namo Namaha"
+        </div>
+        
+        <p class="footer">Symbol of Strength, Protection and Motherly Love</p>
+    </div>
+
+    <script>
+        // Add random stars to the background
+        document.addEventListener('DOMContentLoaded', function() {
+            const body = document.querySelector('body');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                const size = Math.random() * 3;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`;
+                
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                body.appendChild(star);
+            }
+        });
+    </script>
+</body>
+</html>

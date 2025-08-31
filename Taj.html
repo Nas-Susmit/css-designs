@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Taj Mahal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #FF8C00 0%, #FFA500 20%, #87CEEB 20%, #B0E0E6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+        }
+
+        .taj-container {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            margin-bottom: 50px;
+        }
+
+        /* Base Platform */
+        .base-platform {
+            position: absolute;
+            bottom: 0;
+            left: 50px;
+            width: 700px;
+            height: 40px;
+            background: linear-gradient(to bottom, #D2B48C, #A9A9A9);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Main Base */
+        .main-base {
+            position: absolute;
+            bottom: 40px;
+            left: 150px;
+            width: 500px;
+            height: 60px;
+            background: linear-gradient(to bottom, #F5F5F5, #D3D3D3);
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Central Building */
+        .central-building {
+            position: absolute;
+            bottom: 100px;
+            left: 200px;
+            width: 400px;
+            height: 200px;
+            background: linear-gradient(to bottom, #FFF, #F8F8FF);
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 2px solid #E6E6FA;
+        }
+
+        /* Arches */
+        .arch {
+            position: absolute;
+            bottom: 0;
+            background: transparent;
+            border-top: 4px solid #4B0082;
+            border-left: 4px solid #4B0082;
+            border-right: 4px solid #4B0082;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .central-arch {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 160px;
+        }
+
+        .side-arch {
+            width: 80px;
+            height: 120px;
+            bottom: 10px;
+        }
+
+        .side-arch-left {
+            left: 60px;
+        }
+
+        .side-arch-right {
+            right: 60px;
+        }
+
+        /* Main Dome */
+        .main-dome {
+            position: absolute;
+            bottom: 300px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 120px;
+            background: linear-gradient(to bottom, #FFF, #F0F8FF);
+            border-radius: 100px 100px 0 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            border: 3px solid #E6E6FA;
+        }
+
+        /* Dome Finial */
+        .dome-finial {
+            position: absolute;
+            bottom: 410px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 40px;
+            background: linear-gradient(to bottom, #FFD700, #FFA500);
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 0 15px rgba(255,215,0,0.8);
+            z-index: 10;
+        }
+
+        .finial-crescent {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 25px;
+            height: 25px;
+            border: 3px solid #FFD700;
+            border-radius: 50%;
+            border-bottom: none;
+            border-right: none;
+        }
+
+        /* Corner Minarets */
+        .minaret {
+            position: absolute;
+            bottom: 100px;
+            width: 40px;
+            height: 300px;
+            background: linear-gradient(to bottom, #FFF, #F0F8FF);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 2px solid #E6E6FA;
+        }
+
+        .minaret-1 {
+            left: 100px;
+        }
+
+        .minaret-2 {
+            right: 100px;
+        }
+
+        .minaret-3 {
+            left: 80px;
+            height: 280px;
+        }
+
+        .minaret-4 {
+            right: 80px;
+            height: 280px;
+        }
+
+        /* Minaret Tops */
+        .minaret-dome {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, #F0F8FF, #E6E6FA);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            border: 2px solid #E6E6FA;
+        }
+
+        .minaret-finial {
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 20px;
+            background: linear-gradient(to bottom, #FFD700, #FFA500);
+            border-radius: 4px;
+        }
+
+        /* Decorative Elements */
+        .geometric-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(75,0,130,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 75% 25%, rgba(75,0,130,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 25% 75%, rgba(75,0,130,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(75,0,130,0.1) 2px, transparent 2px);
+            background-size: 50px 50px;
+        }
+
+        /* Reflection Pool */
+        .reflection-pool {
+            position: absolute;
+            bottom: -30px;
+            left: 50px;
+            width: 700px;
+            height: 20px;
+            background: linear-gradient(to bottom, rgba(135,206,235,0.6), rgba(176,224,230,0.8));
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .reflection {
+            position: absolute;
+            bottom: -550px;
+            left: 0;
+            width: 100%;
+            height: 500px;
+            background: inherit;
+            opacity: 0.3;
+            transform: scaleY(-1);
+            filter: blur(1px);
+        }
+
+        /* Gardens */
+        .garden {
+            position: absolute;
+            bottom: 0;
+            width: 150px;
+            height: 100px;
+            background: linear-gradient(45deg, #228B22, #32CD32);
+            border-radius: 20px;
+            opacity: 0.7;
+        }
+
+        .garden-left {
+            left: 0;
+        }
+
+        .garden-right {
+            right: 0;
+        }
+
+        /* Trees */
+        .tree {
+            position: absolute;
+            bottom: 20px;
+            width: 30px;
+            height: 60px;
+        }
+
+        .tree-trunk {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 20px;
+            background: #8B4513;
+            border-radius: 4px;
+        }
+
+        .tree-foliage {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, #228B22, #32CD32);
+            border-radius: 50%;
+        }
+
+        .tree-1 {
+            left: 50px;
+        }
+
+        .tree-2 {
+            left: 100px;
+        }
+
+        .tree-3 {
+            right: 50px;
+        }
+
+        .tree-4 {
+            right: 100px;
+        }
+
+        /* Sunrise Animation */
+        @keyframes sunrise {
+            0% { 
+                background: linear-gradient(to bottom, #191970 0%, #483D8B 30%, #4682B4 30%, #87CEEB 100%);
+            }
+            100% { 
+                background: linear-gradient(to bottom, #FF8C00 0%, #FFA500 20%, #87CEEB 20%, #B0E0E6 100%);
+            }
+        }
+
+        body {
+            animation: sunrise 4s ease-in-out;
+        }
+
+        /* Glow Effect */
+        .taj-container {
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+        }
+
+        .title {
+            position: absolute;
+            top: -65px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 32px;
+            font-weight: bold;
+            color: #4B0082;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .subtitle {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            color: #6A5ACD;
+            font-style: italic;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="taj-container">
+        <div class="title">TAJ MAHAL</div>
+        <div class="subtitle">Symbol of Eternal Love</div>
+
+        <!-- Reflection Pool -->
+        <div class="reflection-pool">
+            <div class="reflection"></div>
+        </div>
+        
+        <!-- Gardens -->
+        <div class="garden garden-left"></div>
+        <div class="garden garden-right"></div>
+        
+        <!-- Trees -->
+        <div class="tree tree-1">
+            <div class="tree-trunk"></div>
+            <div class="tree-foliage"></div>
+        </div>
+        <div class="tree tree-2">
+            <div class="tree-trunk"></div>
+            <div class="tree-foliage"></div>
+        </div>
+        <div class="tree tree-3">
+            <div class="tree-trunk"></div>
+            <div class="tree-foliage"></div>
+        </div>
+        <div class="tree tree-4">
+            <div class="tree-trunk"></div>
+            <div class="tree-foliage"></div>
+        </div>
+        
+        <!-- Base Platforms -->
+        <div class="base-platform"></div>
+        <div class="main-base"></div>
+        
+        <!-- Main Building -->
+        <div class="central-building">
+            <div class="geometric-pattern"></div>
+        </div>
+        
+        <!-- Arches -->
+        <div class="arch central-arch"></div>
+        <div class="arch side-arch side-arch-left"></div>
+        <div class="arch side-arch side-arch-right"></div>
+        
+        <!-- Minarets -->
+        <div class="minaret minaret-1">
+            <div class="minaret-dome"></div>
+            <div class="minaret-finial"></div>
+        </div>
+        <div class="minaret minaret-2">
+            <div class="minaret-dome"></div>
+            <div class="minaret-finial"></div>
+        </div>
+        <div class="minaret minaret-3">
+            <div class="minaret-dome"></div>
+            <div class="minaret-finial"></div>
+        </div>
+        <div class="minaret minaret-4">
+            <div class="minaret-dome"></div>
+            <div class="minaret-finial"></div>
+        </div>
+        
+        <!-- Main Dome -->
+        <div class="main-dome"></div>
+        <div class="dome-finial">
+            <div class="finial-crescent"></div>
+        </div>
+    </div>
+</body>
+</html>

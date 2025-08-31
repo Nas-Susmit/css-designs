@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced CSS Narendra Modi</title>
+    <style>
+        :root {
+            --skin: #F5C9A7;
+            --skin-shadow: #e9b796;
+            --skin-dark: #d8a57f;
+            --beard: #e6e6e6;
+            --beard-dark: #d8d8d8;
+            --hair: #ffffff;
+            --glasses: #333;
+            --glasses-light: #555;
+            --kurta: #ff6f00;
+            --kurta-shadow: #d45a00;
+            --shawl: #f2d9a6;
+            --shawl-shadow: #e6c98f;
+            --bg1: #ffecd2;
+            --bg2: #fcb69f;
+            --eyes: #333;
+            --mouth: #a44;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(1200px 600px at 50% 20%, var(--bg1), var(--bg2));
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: min(88vmin, 520px);
+            height: min(110vmin, 650px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .canvas {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 24px;
+            background: conic-gradient(from 210deg at 50% 0%, #fff4, #fff0 20% 100%), #fffb;
+            box-shadow: 0 30px 80px #0002, inset 0 0 0 1px #0001;
+            overflow: hidden;
+        }
+
+        /* Background elements */
+        .bg-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .saffron-flag {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            width: 60px;
+            height: 40px;
+            background: linear-gradient(to bottom, #ff9933 33%, white 33%, white 66%, #138808 66%);
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transform: rotate(5deg);
+        }
+
+        .saffron-flag:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: #000080;
+            border-radius: 2px 0 0 2px;
+        }
+
+        .lotus {
+            position: absolute;
+            bottom: 10%;
+            left: 8%;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to bottom, #ff6fcc, #ff26a8);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            transform: rotate(-15deg);
+            box-shadow: 0 0 15px rgba(255, 111, 204, 0.4);
+        }
+
+        .lotus:before, .lotus:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: inherit;
+        }
+
+        .lotus:before {
+            transform: rotate(60deg);
+        }
+
+        .lotus:after {
+            transform: rotate(120deg);
+        }
+
+        /* Shoulders / Torso */
+        .torso {
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 46%;
+            background: radial-gradient(120% 90% at 50% 0%, var(--shawl) 0 40%, transparent 41%),
+                        linear-gradient(to bottom, var(--kurta), var(--kurta-shadow));
+            clip-path: polygon(0 18%, 100% 18%, 100% 100%, 0 100%);
+            z-index: 2;
+        }
+
+        .torso:before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 16%;
+            height: 70%;
+            background: linear-gradient(#d95e00, #b34c00) center/100% 100% no-repeat;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 18px 0 0 #fff inset, 0 36px 0 0 #fff inset, 0 54px 0 0 #fff inset;
+            mask: radial-gradient(10px 10px at 50% 12px, transparent 10px, #000 11px) top/100% 18px repeat-y;
+        }
+
+        /* Neck */
+        .neck {
+            position: absolute;
+            left: 50%;
+            top: 43%;
+            transform: translateX(-50%);
+            width: 28%;
+            height: 10%;
+            background: linear-gradient(to bottom, var(--skin), var(--skin-shadow));
+            border-radius: 0 0 40px 40px;
+            box-shadow: 0 10px 0 #0001 inset;
+            z-index: 3;
+        }
+
+        /* Head base */
+        .head {
+            position: absolute;
+            left: 50%;
+            top: 15%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 40%;
+            background: var(--skin);
+            border-radius: 46% 46% 44% 44% / 48% 48% 52% 52%;
+            box-shadow: 0 0 0 2px #0001 inset;
+            z-index: 4;
+        }
+
+        /* Ears */
+        .ear {
+            position: absolute;
+            top: 35%;
+            width: 10%;
+            height: 14%;
+            background: var(--skin);
+            border-radius: 50%;
+            box-shadow: inset -2px 0 0 #0001;
+            z-index: 5;
+        }
+
+        .ear.left {
+            left: 17%;
+        }
+
+        .ear.right {
+            right: 17%;
+            transform: scaleX(-1);
+        }
+
+        /* Hair on top */
+        .hair {
+            position: absolute;
+            left: 50%;
+            top: 12%;
+            transform: translateX(-50%);
+            width: 54%;
+            height: 26%;
+            background: radial-gradient(120% 100% at 50% 0%, var(--hair) 0 65%, transparent 66%);
+            border-radius: 50% / 60% 60% 40% 40%;
+            filter: drop-shadow(0 2px 0 #0001);
+            z-index: 6;
+        }
+
+        .hair:after {
+            content: "";
+            position: absolute;
+            inset: 40% -10% -8% -10%;
+            background: radial-gradient(70% 120% at 0% 30%, var(--hair) 0 60%, transparent 61%),
+                        radial-gradient(70% 120% at 100% 30%, var(--hair) 0 60%, transparent 61%);
+        }
+
+        /* Eyebrows */
+        .brow {
+            position: absolute;
+            top: 44%;
+            width: 18%;
+            height: 2.6%;
+            background: var(--hair);
+            border-radius: 8px;
+            filter: drop-shadow(0 1px 0 #0001);
+            z-index: 7;
+        }
+
+        .brow.left {
+            left: 30%;
+            transform: rotate(-3deg);
+        }
+
+        .brow.right {
+            right: 30%;
+            transform: rotate(3deg);
+        }
+
+        /* Eyes behind glasses */
+        .eye {
+            position: absolute;
+            top: 49%;
+            width: 12%;
+            height: 2%;
+            background: var(--eyes);
+            border-radius: 10px;
+            z-index: 8;
+        }
+
+        .eye.left {
+            left: 34%;
+        }
+
+        .eye.right {
+            right: 34%;
+        }
+
+        /* Glasses */
+        .glasses {
+            z-index: 9;
+        }
+
+        .glasses .bridge {
+            position: absolute;
+            top: 48.2%;
+            left: 50%;
+            width: 8%;
+            height: 2px;
+            background: var(--glasses);
+            transform: translateX(-50%);
+        }
+
+        .rim {
+            position: absolute;
+            top: 46%;
+            width: 18%;
+            height: 10%;
+            border: 3px solid var(--glasses);
+            border-radius: 10px;
+            background: linear-gradient(#ffffffcc, #ffffff99);
+            box-shadow: inset 0 0 0 2px #0001;
+        }
+
+        .rim.left {
+            left: 28%;
+        }
+
+        .rim.right {
+            right: 28%;
+        }
+
+        .temple {
+            position: absolute;
+            top: 50%;
+            width: 8%;
+            height: 2px;
+            background: var(--glasses);
+        }
+
+        .temple.left {
+            left: 22%;
+        }
+
+        .temple.right {
+            right: 22%;
+        }
+
+        /* Nose */
+        .nose {
+            position: absolute;
+            top: 52%;
+            left: 50%;
+            width: 2.6%;
+            height: 10%;
+            background: linear-gradient(#0001, #0000);
+            transform: translateX(-50%);
+            border-radius: 40px;
+            box-shadow: -6px 10px 0 -8px #0004, 6px 10px 0 -8px #0004;
+            z-index: 10;
+        }
+
+        /* Moustache */
+        .stache {
+            position: absolute;
+            top: 59.5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 38%;
+            height: 10%;
+            background: radial-gradient(100% 140% at 30% 60%, var(--beard) 0 60%, transparent 61%),
+                        radial-gradient(100% 140% at 70% 60%, var(--beard) 0 60%, transparent 61%);
+            filter: drop-shadow(0 1px 0 #0002);
+            z-index: 11;
+        }
+
+        /* Beard */
+        .beard {
+            position: absolute;
+            left: 50%;
+            top: 56%;
+            transform: translateX(-50%);
+            width: 52%;
+            height: 24%;
+            background: radial-gradient(120% 120% at 50% 0%, transparent 60%, var(--beard) 61% 100%),
+                        radial-gradient(80% 60% at 50% 100%, var(--beard-dark) 0 70%, transparent 71%);
+            border-radius: 0 0 46% 46% / 0 0 60% 60%;
+            z-index: 12;
+        }
+
+        /* Mouth */
+        .mouth {
+            position: absolute;
+            top: 68%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18%;
+            height: 4%;
+            background: radial-gradient(70% 120% at 50% 10%, #0002 0 40%, transparent 41%),
+                        linear-gradient(to bottom, var(--mouth), #722);
+            border-radius: 0 0 30px 30px;
+            overflow: hidden;
+            z-index: 13;
+        }
+
+        .mouth:after {
+            content: "";
+            position: absolute;
+            inset: 60% 15% 0 15%;
+            background: #fff8;
+            border-radius: 8px;
+        }
+
+        /* Shawl edge */
+        .shawl-edge {
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 48%;
+            background: linear-gradient(90deg, transparent 45%, #0003 46% 54%, transparent 55%) top 18% left/100% 2px no-repeat;
+            pointer-events: none;
+            z-index: 14;
+        }
+
+        /* Title */
+        .caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 6%;
+            text-align: center;
+            letter-spacing: 0.06em;
+            font-weight: 700;
+            font-size: clamp(14px, 3.2vmin, 20px);
+            color: #0008;
+            text-transform: uppercase;
+            z-index: 15;
+        }
+
+        /* Signature */
+        .signature {
+            position: absolute;
+            bottom: 2%;
+            right: 5%;
+            font-family: 'Dancing Script', cursive;
+            font-size: 14px;
+            color: #555;
+            transform: rotate(-5deg);
+        }
+
+        /* Enhanced facial features */
+        .cheek {
+            position: absolute;
+            top: 55%;
+            width: 12%;
+            height: 8%;
+            background: radial-gradient(var(--skin) 30%, var(--skin-shadow) 70%);
+            border-radius: 50%;
+            opacity: 0.7;
+            z-index: 5;
+        }
+
+        .cheek.left {
+            left: 26%;
+        }
+
+        .cheek.right {
+            right: 26%;
+        }
+
+        .forehead-line {
+            position: absolute;
+            top: 38%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30%;
+            height: 2px;
+            background: var(--skin-shadow);
+            border-radius: 2px;
+            opacity: 0.6;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 420px) {
+            .canvas {
+                border-radius: 16px;
+            }
+            
+            .saffron-flag {
+                width: 40px;
+                height: 30px;
+            }
+            
+            .lotus {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        /* Animation */
+        @keyframes subtle-move {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-5px) rotate(0.5deg); }
+        }
+
+        .canvas {
+            animation: subtle-move 8s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="canvas" aria-label="Enhanced CSS illustration of Narendra Modi">
+            <div class="bg-elements">
+                <div class="saffron-flag"></div>
+                <div class="lotus"></div>
+            </div>
+            
+            <div class="torso"></div>
+            <div class="shawl-edge"></div>
+
+            <div class="neck"></div>
+            <div class="head"></div>
+            <div class="ear left"></div>
+            <div class="ear right"></div>
+            <div class="hair"></div>
+
+            <div class="cheek left"></div>
+            <div class="cheek right"></div>
+            <div class="forehead-line"></div>
+
+            <div class="brow left"></div>
+            <div class="brow right"></div>
+
+            <div class="glasses">
+                <div class="rim left"></div>
+                <div class="rim right"></div>
+                <div class="bridge"></div>
+                <div class="temple left"></div>
+                <div class="temple right"></div>
+            </div>
+
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+
+            <div class="nose"></div>
+            <div class="stache"></div>
+            <div class="beard"></div>
+            <div class="mouth"></div>
+
+            <div class="caption">Narendra Modi — CSS Art</div>
+            <div class="signature">With Respect</div>
+        </div>
+    </div>
+</body>
+</html>
